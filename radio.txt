@@ -1,0 +1,36 @@
+http://mp3.kataweb.it:8000/M2O_BK.m3u
+http://www.studiopiu.net:8000/";
+Radio["radio105"] = @"http://shoutcast.unitedradio.it:1101";
+Radio["radio deejay"] = @"http://mp3.kataweb.it:8000/RadioDeejay"; 
+Radio["radio kiss kiss"] = @"http://wma07.fluidstream.net:4610";
+Radio["radio RDS"] = @"http://www.rds.it:8000/stream";
+Radio["radio 101"] = @"http://str30.creacast.com/r101a";
+Radio["radio capital"] = @"http://mp3.kataweb.it:8000/CAPITAL";
+Radio["radio subasio"] = @"http://www.xdevel.com/radio/subasio.asx";
+Radio["radio gamma"] = @"http://onair18.xdevel.com:8210/";
+Radio["radio subasio+"] = @"http://www.xdevel.com/radio/subasiopiu.asx";
+Radio["radio subasioXL"] = @"http://streaming.xdevel.com:80/SubasioXL";
+//Radio["radio lattemiele"] = @"http://www.xdevel.com/radio/lattemiele.asx"; //Piu Lento
+Radio["radio lattemiele"] = @"http://onair4.xdevel.com/LatteMiele";
+Radio["rai radio1"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=152946";
+Radio["rai radio2"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153172";
+Radio["rai radio3"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153177";
+Radio["rai radio4"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153308";
+Radio["rai radio5"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153311";
+Radio["rai radio6"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=364598";
+Radio["rai radio7"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=364608";
+Radio["rai radio8"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=364611";
+Radio["rai gr parlamento"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153316";
+Radio["rai isoradio"] = @"http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153315";
+Radio["virgin"] = @"http://shoutcast.unitedradio.it:1301/";
+Radio["virgin alternative"] = @"http://shoutcast.unitedradio.it:1513/";
+Radio["virgin 70"] = @"http://shoutcast.unitedradio.it:1119/"; 
+Radio["virgin 80"] = @"http://shoutcast.unitedradio.it:1411/"; 
+Radio["virgin coldplay"] = @"http://shoutcast.unitedradio.it:1201/";
+Radio["virgin ligabue"] = @"http://shoutcast.unitedradio.it:1305/";
+Radio["virgin litfiba"] = @"http://shoutcast.unitedradio.it:1217/";
+Radio["virgin vasco"] = @"http://shoutcast.unitedradio.it:1409/";
+Radio["virgin bau"] = @"http://shoutcast.unitedradio.it:1405/";
+Radio["radio rock n roll"] = @"http://91.121.137.159:8000/";
+Radio["radiomaria"] = @"http://50.7.181.186:8092/";
+    
