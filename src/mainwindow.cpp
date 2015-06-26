@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     // Leggo il file e populo widget
-    /***************************************************************************************************/
+    /****************************************************************************************************/
     QFile file("radio.txt");
     if(!file.open(QIODevice::ReadOnly)) {
         QMessageBox::information(0, "error", file.errorString());
