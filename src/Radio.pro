@@ -18,3 +18,8 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+OTHER_FILES += \
+    radio.txt \
+    ../LICENSE \
+    ../README.md
