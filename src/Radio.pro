@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -22,4 +22,5 @@ FORMS    += mainwindow.ui
 OTHER_FILES += \
     radio.txt \
     ../LICENSE \
-    ../README.md
+    ../README.md \
+    1.mp3
