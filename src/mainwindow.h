@@ -21,9 +21,12 @@ private slots:
 
     void on_listWidget_doubleClicked(const QModelIndex &index);
 
+    void on_AudioSlider_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
+    bool is_started;
 };
 
 #endif // MAINWINDOW_H
