@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui multimedia
+LIBS += -lvlc
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,9 +14,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    player.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    player.h
 
 FORMS    += mainwindow.ui
 

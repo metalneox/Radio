@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "QtMultimedia/QMediaPlayer"
+//#include "QtMultimedia/QMediaPlayer"
 
 namespace Ui {
 class MainWindow;
@@ -25,7 +25,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QMediaPlayer *player;
+    //QMediaPlayer *player;
     bool is_started;
 };
 

@@ -3,9 +3,8 @@
 #include "QFile"
 #include "QTextStream"
 #include "QMessageBox"
-#include "QtMultimedia/QMediaPlayer"
-#include <iostream>
 #include <QDebug>
+#include "player.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -35,13 +34,13 @@ MainWindow::MainWindow(QWidget *parent) :
     /***************************************************************************************************/
     // Creo QMediaPlayer e setto volume e slide volume
     /***************************************************************************************************/
-    ui->listWidget->item(0)->setSelected(true);
-    player = new QMediaPlayer(this, QMediaPlayer::StreamPlayback);
-    player->setVolume(100);
+    //ui->listWidget->item(0)->setSelected(true);
+    //player = new QMediaPlayer(this, QMediaPlayer::StreamPlayback);
+    //player->setVolume(100);
     ui->AudioSlider->setValue(100);
     //Questo worka anche con un piccolo difetto di riproduzione al inizio
-    player->setMedia(QUrl("http://a.tumblr.com/tumblr_ljza0ntBOS1qhr5ujo1.mp3"));
-    player->play();
+    //player->setMedia(QUrl("http://a.tumblr.com/tumblr_ljza0ntBOS1qhr5ujo1.mp3"));
+    //player->play();
     /***************************************************************************************************/
 }
 
@@ -54,6 +53,7 @@ void MainWindow::on_PlayButton_clicked()
 {
     if (is_started == false){
         ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
+        /*****************************************************/
         is_started = true;
     }
     else{
@@ -62,16 +62,22 @@ void MainWindow::on_PlayButton_clicked()
     }
     //ui->listWidget->currentItem()->text();
     //player->setMedia(QUrl(ui->listWidget->currentItem()->text()));
+    Player stream;
+    stream.playFile(ui->listWidget->currentItem()->text());
+
 }
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
     //Worka il messagebox
     //QMessageBox::information(0, "error", ui->listWidget->currentItem()->text());
-    player->setMedia(QUrl(ui->listWidget->currentItem()->text()));
+    //player->setMedia(QUrl(ui->listWidget->currentItem()->text()));
+    //Player test();
+    Player stream;
+    stream.playFile(ui->listWidget->currentItem()->text());
 }
 
 void MainWindow::on_AudioSlider_sliderMoved(int position)
 {
-    player->setVolume(position);
+    //player->setVolume(position);
 }

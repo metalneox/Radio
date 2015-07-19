@@ -1,5 +1,5 @@
 http://mp3.kataweb.it:8000/M2O_BK.m3u
-http://www.studiopiu.net:8000/
+http://www.studiopiu.net:8000
 http://shoutcast.unitedradio.it:1101
 http://mp3.kataweb.it:8000/RadioDeejay
 http://wma07.fluidstream.net:4610

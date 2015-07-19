@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#import "player.h"
 
 int main(int argc, char *argv[])
 {
