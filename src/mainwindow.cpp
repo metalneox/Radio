@@ -6,18 +6,19 @@
 #include <QDebug>
 #include "player.h"
 
+#include <iostream>
+
 Player stream;
+bool is_started = false;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //Player stream;
-    bool *is_started = false;
 
     /****************************************************************************************************/
-    // Leggo il file e populo widget
+    // Leggo il file e populo widget e setto volume
     /****************************************************************************************************/
     QFile file("radio.txt");
     if(!file.open(QIODevice::ReadOnly)) {
@@ -32,17 +33,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     file.close();
-    /***************************************************************************************************/
-    // Creo QMediaPlayer e setto volume e slide volume
-    /***************************************************************************************************/
-    //ui->listWidget->item(0)->setSelected(true);
-    //player = new QMediaPlayer(this, QMediaPlayer::StreamPlayback);
-    //player->setVolume(100);
     ui->AudioSlider->setValue(100);
-    //Questo worka anche con un piccolo difetto di riproduzione al inizio
-    //player->setMedia(QUrl("http://a.tumblr.com/tumblr_ljza0ntBOS1qhr5ujo1.mp3"));
-    //player->play();
-    /***************************************************************************************************/
+    /****************************************************************************************************/
 }
 
 MainWindow::~MainWindow()
@@ -69,18 +61,9 @@ void MainWindow::on_PlayButton_clicked()
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
-    /*
-
-    if(libvlc_media_player_is_playing){
-        stream.stopFile();
-        stream.playFile(ui->listWidget->currentItem()->text());
-    }
-    stream.playFile(ui->listWidget->currentItem()->text());
-    */
     if (is_started == false){
         ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
         /*****************************************************/
-
         stream.playFile(ui->listWidget->currentItem()->text());
         is_started = true;
     }
@@ -94,5 +77,4 @@ void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 void MainWindow::on_AudioSlider_sliderMoved(int position)
 {
     stream.setAudio(position);
-    //player->setVolume(position);
 }

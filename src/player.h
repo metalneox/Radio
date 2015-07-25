@@ -19,5 +19,6 @@ public:
     void playFile(QString file);
     void stopFile();
     void setAudio(int Volume);
+    //void init();
 };
 #endif // PLAYER_H

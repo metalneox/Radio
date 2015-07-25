@@ -9,7 +9,11 @@ Player::Player(){
     inst = libvlc_new(0, NULL);
 
 };
-
+/*
+Player::init(){
+    libvlc_audio_set_volume(mp,100);
+}
+*/
 //desctructor
 Player::~Player()
 {
@@ -39,7 +43,7 @@ void Player::stopFile()
 }
 void Player::setAudio(int Volume)
 {
-    //libvlc_audio_set_volume(mp,Volume);
+    libvlc_audio_set_volume(mp,Volume);
 }
 
 
