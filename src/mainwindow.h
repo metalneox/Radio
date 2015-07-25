@@ -25,7 +25,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    //QMediaPlayer *player;
     bool is_started;
 };
 

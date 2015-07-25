@@ -6,14 +6,15 @@
 #include <QDebug>
 #include "player.h"
 
+Player stream;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    bool is_started = false;
+    //Player stream;
+    bool *is_started = false;
 
     /****************************************************************************************************/
     // Leggo il file e populo widget
@@ -47,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    //delete stream;
 }
 
 void MainWindow::on_PlayButton_clicked()
@@ -54,30 +56,43 @@ void MainWindow::on_PlayButton_clicked()
     if (is_started == false){
         ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
         /*****************************************************/
+
+        stream.playFile(ui->listWidget->currentItem()->text());
         is_started = true;
     }
     else{
         ui->PlayButton->setIcon(QIcon("img/play_audio.png"));
+        stream.stopFile();
         is_started = false;
     }
-    //ui->listWidget->currentItem()->text();
-    //player->setMedia(QUrl(ui->listWidget->currentItem()->text()));
-    Player stream;
-    stream.playFile(ui->listWidget->currentItem()->text());
-
 }
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
-    //Worka il messagebox
-    //QMessageBox::information(0, "error", ui->listWidget->currentItem()->text());
-    //player->setMedia(QUrl(ui->listWidget->currentItem()->text()));
-    //Player test();
-    Player stream;
+    /*
+
+    if(libvlc_media_player_is_playing){
+        stream.stopFile();
+        stream.playFile(ui->listWidget->currentItem()->text());
+    }
     stream.playFile(ui->listWidget->currentItem()->text());
+    */
+    if (is_started == false){
+        ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
+        /*****************************************************/
+
+        stream.playFile(ui->listWidget->currentItem()->text());
+        is_started = true;
+    }
+    else{
+        ui->PlayButton->setIcon(QIcon("img/play_audio.png"));
+        stream.stopFile();
+        is_started = false;
+    }
 }
 
 void MainWindow::on_AudioSlider_sliderMoved(int position)
 {
+    stream.setAudio(position);
     //player->setVolume(position);
 }

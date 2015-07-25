@@ -2,25 +2,25 @@
 #include "QMessageBox"
 #include <vlc/vlc.h>
 #include <unistd.h>
-
+#include <iostream>
+#include <string>
 //#include <iostream>
 Player::Player(){
+    inst = libvlc_new(0, NULL);
 
 };
 
 //desctructor
 Player::~Player()
 {
-    //libvlc_release(*inst);
-    //inst = libvlc_new(0, NULL);
+    // free the media_player
+    libvlc_media_player_release(mp);
+
+    libvlc_release(inst);
 }
 
 void Player::playFile(QString radio)
 {
-    //QMessageBox::information(0, "error", radio);
-    //std::cout << "aaaa";
-
-    inst = libvlc_new(0, NULL);
 
     m = libvlc_media_new_location(inst,radio.toStdString().c_str());
 
@@ -31,20 +31,16 @@ void Player::playFile(QString radio)
     // play the media_player
     libvlc_media_player_play(mp);
 
-    //sleep(10);
-    sleep(10000);
-
-    // stop playing
+}
+void Player::stopFile()
+{
     libvlc_media_player_stop(mp);
 
-    // free the media_player
-    libvlc_media_player_release(mp);
-
-    libvlc_release(inst);
-
 }
-
-
+void Player::setAudio(int Volume)
+{
+    //libvlc_audio_set_volume(mp,Volume);
+}
 
 
 
