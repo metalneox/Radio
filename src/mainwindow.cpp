@@ -3,9 +3,7 @@
 #include "QFile"
 #include "QTextStream"
 #include "QMessageBox"
-#include <QDebug>
 #include "player.h"
-
 #include <iostream>
 
 Player stream;
@@ -16,9 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     /****************************************************************************************************/
-    // Leggo il file e populo widget e setto volume
+    // Leggo il file e populo widget
     /****************************************************************************************************/
     QFile file("radio.txt");
     if(!file.open(QIODevice::ReadOnly)) {
@@ -31,8 +28,13 @@ MainWindow::MainWindow(QWidget *parent) :
         QString line = in.readLine();
         ui->listWidget->addItem(line);
     }
-
     file.close();
+
+    //Default valore
+    ui->listWidget->item(0)->setSelected(true);
+    ui->listWidget->setCurrentItem(ui->listWidget->item(0));
+
+    //Setto Volume
     ui->AudioSlider->setValue(100);
     /****************************************************************************************************/
 }
@@ -44,10 +46,9 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::on_PlayButton_clicked()
-{
+{   
     if (is_started == false){
         ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
-        /*****************************************************/
 
         stream.playFile(ui->listWidget->currentItem()->text());
         is_started = true;
