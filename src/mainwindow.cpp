@@ -62,16 +62,18 @@ void MainWindow::on_PlayButton_clicked()
 
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
-    if (is_started == false){
-        ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
-        /*****************************************************/
-        stream.playFile(ui->listWidget->currentItem()->text());
-        is_started = true;
-    }
-    else{
+    if (is_started == true && stream.isPlayed()){
         ui->PlayButton->setIcon(QIcon("img/play_audio.png"));
+        //ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
+        /*****************************************************/
         stream.stopFile();
         is_started = false;
+    }
+    else{
+        //ui->PlayButton->setIcon(QIcon("img/play_audio.png"));
+        ui->PlayButton->setIcon(QIcon("img/stop_audio.png"));
+        stream.playFile(ui->listWidget->currentItem()->text());
+        is_started = true;
     }
 }
 

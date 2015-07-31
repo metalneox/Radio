@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <vlc/vlc.h>
+//#include <vlc/plugins/vlc_stream.h>
 #include <QString>
 
 class Player{
@@ -19,6 +20,7 @@ public:
     void playFile(QString file);
     void stopFile();
     void setAudio(int Volume);
+    int isPlayed();
     //void init();
 };
 #endif // PLAYER_H
