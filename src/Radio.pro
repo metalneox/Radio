@@ -27,3 +27,9 @@ OTHER_FILES += \
     ../LICENSE \
     ../README.md \
     1.mp3
+
+DISTFILES += \
+    img/icona.png \
+    img/speaker.png \
+    img/play_audio.png \
+    img/stop_audio.png
