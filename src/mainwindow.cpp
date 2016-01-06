@@ -44,7 +44,11 @@ MainWindow::~MainWindow()
     delete ui;
     //delete stream;
 }
-
+void MainWindow::about(){
+    QMessageBox messageBox;
+    //messageBox.critical(0,"Error","An error has occured !");
+    messageBox.information(0,"Informazioni","Semplice programma per la gestione di radio italiane");
+}
 void MainWindow::on_PlayButton_clicked()
 {   
     if (is_started == false){
