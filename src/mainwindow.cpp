@@ -8,7 +8,7 @@
 
 Player stream;
 bool is_started = false;
-//
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
