@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Setto Volume
     ui->AudioSlider->setValue(100);
+    connect(ui->actionInformation,SIGNAL(triggered(bool)),this, SLOT(about()));
     /****************************************************************************************************/
 }
 
