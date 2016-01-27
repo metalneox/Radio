@@ -18,6 +18,7 @@ public:
 
 private slots:
     void about();
+    void update();
     void on_PlayButton_clicked();
     void on_listWidget_doubleClicked(const QModelIndex &index);
     void on_AudioSlider_sliderMoved(int position);

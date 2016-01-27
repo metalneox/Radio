@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //Setto Volume
     ui->AudioSlider->setValue(100);
     connect(ui->actionInformation,SIGNAL(triggered(bool)),this, SLOT(about()));
+    connect(ui->actionUpdate,SIGNAL(triggered(bool)),this, SLOT(update()));
     /****************************************************************************************************/
 }
 
@@ -50,6 +51,13 @@ void MainWindow::about(){
     //messageBox.critical(0,"Error","An error has occured !");
     messageBox.information(0,"Informazioni","Semplice programma per la gestione di radio italiane");
 }
+
+void MainWindow::update(){
+    QMessageBox messageBox;
+    //messageBox.critical(0,"Error","An error has occured !");
+    messageBox.information(0,"Aggiornamenti","Proprietà ancora non disponibile");
+}
+
 void MainWindow::on_PlayButton_clicked()
 {   
     if (is_started == false){
