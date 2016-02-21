@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <Radio url="http://mp3.kataweb.it:8000/M2O_BK.m3u"></Radio>
+    <Radio url="http://www.studiopiu.net:8000"></Radio>
+    <Radio url="http://www.gammagioiosa.net/magic.m3u">ccc</Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1101"></Radio>
+    <Radio url="http://mp3.kataweb.it:8000/RadioDeejay"></Radio>
+    <Radio url="http://wma07.fluidstream.net:4610"></Radio>
+    <Radio url="http://www.rds.it:8000/stream"></Radio>
+    <Radio url="http://str30.creacast.com/r101a"></Radio>
+    <Radio url="http://mp3.kataweb.it:8000/CAPITAL"></Radio>
+    <Radio url="http://www.xdevel.com/Radio/subasio.asx"></Radio>
+    <Radio url="http://onair18.xdevel.com:8210/"></Radio>
+    <Radio url="http://www.xdevel.com/Radio/subasiopiu.asx"></Radio>
+    <Radio url="http://streaming.xdevel.com:80/SubasioXL"></Radio>
+    <Radio url="http://onair4.xdevel.com/LatteMiele"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=152946"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153172"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153177"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153308"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153311"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=364598"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=364608"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=364611"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153316"></Radio>
+    <Radio url="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=153315"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1301/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1513/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1119/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1411/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1201/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1305/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1217/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1409/"></Radio>
+    <Radio url="http://shoutcast.unitedRadio.it:1405/"></Radio>
+    <Radio url="http://91.121.137.159:8000/"></Radio>
+    <Radio url="http://50.7.181.186:8092/"></Radio>
+    <Update version_sw="1.0.2"></Update>
+</root>
