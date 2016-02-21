@@ -5,6 +5,7 @@
 #include "QMessageBox"
 #include "player.h"
 #include <iostream>
+#include <QXmlStreamReader>
 
 Player stream;
 bool is_started = false;
@@ -14,21 +15,51 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    /****************************************************************************************************/
-    // Leggo il file e populo widget
-    /****************************************************************************************************/
-    QFile file("radio.txt");
-    if(!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0, "error", file.errorString());
-    }
+    /*********************************************************************************/
+    // Leggere file da xml
+      QFile current_file("radio.xml");
+      bool open = current_file.open(QIODevice::ReadOnly | QIODevice::Text);
+      if (!open)
+      {
+          std::cout << "Couldn't open file" << std::endl;
+          //return 1;
+      }
+      else
+      {
+          std::cout << "File opened OK" << std::endl;
+      }
+      QXmlStreamReader xml(&current_file);
+      //QXmlStreamReader xml(current_file.readAll());
+      while (!xml.atEnd()) {
+            //output+=xml.readElementText();
+            xml.readNext();
+            //xml.readNextStartElement()
+            if(xml.name() == "Radio"){
+                //controllo update e aggiorno il file se e una versione superiore
+                foreach(const QXmlStreamAttribute &attr, xml.attributes()) {
+                                    if (attr.name().toString() == QLatin1String("url")) {
+                                        QString attribute_value = attr.value().toString();
+                                        ui->listWidget->addItem(attribute_value);
+                                    }
+                                }
+            }
+            if(xml.name() == "Update"){
+                //controllo update e aggiorno il file se e una versione superiore
+                foreach(const QXmlStreamAttribute &attr, xml.attributes()) {
+                                    if (attr.name().toString() == QLatin1String("version_sw")) {
+                                        //Controllo versione
+                                        //QString attribute_value = attr.value().toString();
+                                        //std::cout << attribute_value.toStdString(); //1.0.2 currente
+                                    }
+                                }
+            }
+        }
 
-    QTextStream in(&file);
+      if (xml.hasError()) {
+            // do error handling
+      }
 
-    while(!in.atEnd()) {
-        QString line = in.readLine();
-        ui->listWidget->addItem(line);
-    }
-    file.close();
+   /*********************************************************************************/
 
     //Default valore
     ui->listWidget->item(0)->setSelected(true);

@@ -75,7 +75,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>45</y>
+      <y>40</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -155,7 +155,7 @@
   </action>
   <action name="actionUpdate">
    <property name="text">
-    <string>Update</string>
+    <string>&amp;Update</string>
    </property>
   </action>
  </widget>
