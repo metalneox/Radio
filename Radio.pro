@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui multimedia
-LIBS += -lvlc
+LIBS     += -lvlc
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,13 +23,13 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 OTHER_FILES += \
-    radio.txt \
     ../LICENSE \
-    ../README.md \
-    1.mp3
+    ../README.md
+
 
 DISTFILES += \
     img/icona.png \
     img/speaker.png \
     img/play_audio.png \
-    img/stop_audio.png
+    img/stop_audio.png \
+    radio.xml

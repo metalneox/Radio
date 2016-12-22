@@ -9,11 +9,7 @@ Player::Player(){
     inst = libvlc_new(0, NULL);
 
 };
-/*
-Player::init(){
-    libvlc_audio_set_volume(mp,100);
-}
-*/
+
 //desctructor
 Player::~Player(){
     // free the media_player

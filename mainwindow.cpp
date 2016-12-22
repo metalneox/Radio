@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "QFile"
 #include "QTextStream"
-#include "QMessageBox"
+#include <QMessageBox>
 #include "player.h"
 #include <iostream>
 #include <QXmlStreamReader>
@@ -15,51 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    /*********************************************************************************/
-    // Leggere file da xml
-      QFile current_file("radio.xml");
-      bool open = current_file.open(QIODevice::ReadOnly | QIODevice::Text);
-      if (!open)
-      {
-          std::cout << "Couldn't open file" << std::endl;
-          //return 1;
-      }
-      else
-      {
-          std::cout << "File opened OK" << std::endl;
-      }
-      QXmlStreamReader xml(&current_file);
-      //QXmlStreamReader xml(current_file.readAll());
-      while (!xml.atEnd()) {
-            //output+=xml.readElementText();
-            xml.readNext();
-            //xml.readNextStartElement()
-            if(xml.name() == "Radio"){
-                //controllo update e aggiorno il file se e una versione superiore
-                foreach(const QXmlStreamAttribute &attr, xml.attributes()) {
-                                    if (attr.name().toString() == QLatin1String("url")) {
-                                        QString attribute_value = attr.value().toString();
-                                        ui->listWidget->addItem(attribute_value);
-                                    }
-                                }
-            }
-            if(xml.name() == "Update"){
-                //controllo update e aggiorno il file se e una versione superiore
-                foreach(const QXmlStreamAttribute &attr, xml.attributes()) {
-                                    if (attr.name().toString() == QLatin1String("version_sw")) {
-                                        //Controllo versione
-                                        //QString attribute_value = attr.value().toString();
-                                        //std::cout << attribute_value.toStdString(); //1.0.2 currente
-                                    }
-                                }
-            }
-        }
 
-      if (xml.hasError()) {
-            // do error handling
-      }
-
-   /*********************************************************************************/
+    MainWindow::radiolist();
 
     //Default valore
     ui->listWidget->item(0)->setSelected(true);
@@ -103,7 +60,52 @@ void MainWindow::on_PlayButton_clicked()
         is_started = false;
     }
 }
+void MainWindow::radiolist(){
+    /*********************************************************************************/
+    // Leggere file da xml
+      QFile current_file("radio.xml");
+      if (!current_file.open(QIODevice::ReadOnly | QIODevice::Text))
+      {
+          std::cout << "Couldn't open file" << std::endl;
+          //return 1;
+      }
+      else
+      {
+          std::cout << "File opened OK" << std::endl;
+      }
+      QXmlStreamReader xml(&current_file);
+      //QXmlStreamReader xml(current_file.readAll());
+      while (!xml.atEnd()) {
+            //output+=xml.readElementText();
+            xml.readNext();
+            //xml.readNextStartElement()
+            if(xml.name() == "Radio"){
+                //controllo update e aggiorno il file se e una versione superiore
+                foreach(const QXmlStreamAttribute &attr, xml.attributes()) {
+                                    if (attr.name().toString() == QLatin1String("url")) {
+                                        QString attribute_value = attr.value().toString();
+                                        ui->listWidget->addItem(attribute_value);
+                                    }
+                                }
+            }
+            if(xml.name() == "Update"){
+                //controllo update e aggiorno il file se e una versione superiore
+                foreach(const QXmlStreamAttribute &attr, xml.attributes()) {
+                                    if (attr.name().toString() == QLatin1String("version_sw")) {
+                                        //Controllo versione
+                                        //QString attribute_value = attr.value().toString();
+                                        //std::cout << attribute_value.toStdString(); //1.0.2 currente
+                                    }
+                                }
+            }
+        }
 
+      if (xml.hasError()) {
+            // do error handling
+      }
+      current_file.close();
+   /*********************************************************************************/
+}
 void MainWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 {
     if (is_started == true && stream.isPlayed()){

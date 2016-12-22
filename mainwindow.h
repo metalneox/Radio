@@ -25,6 +25,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void radiolist();
 };
 
 #endif // MAINWINDOW_H
