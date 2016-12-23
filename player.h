@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <vlc/vlc.h>
-//#include <vlc/plugins/vlc_stream.h>
+
+///#include <vlc/plugins/vlc_stream.h>
 #include <QString>
 
 class Player{

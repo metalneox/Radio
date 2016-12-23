@@ -21,7 +21,6 @@ Player::~Player(){
 void Player::playFile(QString radio){
 
     m = libvlc_media_new_location(inst,radio.toStdString().c_str());
-
     mp = libvlc_media_player_new_from_media(m);
 
     libvlc_media_release(m);

@@ -32,9 +32,8 @@ private:
     void radiolist();
     void createTrayIcon();
     void createActions();
-    QAction *minimizeAction;
+
     QAction *maximizeAction;
-    QAction *restoreAction;
     QAction *quitAction;
 
     QSystemTrayIcon *trayIcon;
