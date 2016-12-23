@@ -6,9 +6,13 @@
 #include "player.h"
 #include <iostream>
 #include <QXmlStreamReader>
+#include <QCloseEvent>
+#include <QSystemTrayIcon>
 
 Player stream;
 bool is_started = false;
+bool trayico_activate = 1;
+QSystemTrayIcon *trayIcon;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     MainWindow::radiolist();
+    MainWindow::createActions();
+    MainWindow::createTrayIcon();
 
     //Default valore
     ui->listWidget->item(0)->setSelected(true);
@@ -28,6 +34,19 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionUpdate,SIGNAL(triggered(bool)),this, SLOT(update()));
     /****************************************************************************************************/
 }
+//Sostituire con il trayico
+void MainWindow::closeEvent (QCloseEvent *event)
+{
+    /*
+    Ogni volta che arriva un segnale di chiusura se il flag trayico e attivo faccio chiudere se no
+    passo in modalita trayico*/
+
+    event->ignore();
+    hide();
+    trayIcon->show();
+}
+
+
 
 MainWindow::~MainWindow()
 {
@@ -44,6 +63,43 @@ void MainWindow::update(){
     QMessageBox messageBox;
     //messageBox.critical(0,"Error","An error has occured !");
     messageBox.information(0,"Aggiornamenti","Proprietà ancora non disponibile");
+}
+
+
+void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+    case QSystemTrayIcon::Trigger:
+    case QSystemTrayIcon::DoubleClick:
+        std::cout << "stocazzo" << std::endl;
+        break;
+    case QSystemTrayIcon::MiddleClick:
+        break;
+    default:
+        ;
+    }
+}
+
+void MainWindow::createActions()
+{
+
+    maximizeAction = new QAction(tr("&Open"), this);
+    connect(maximizeAction, &QAction::triggered, this, &QWidget::showMaximized);
+
+    quitAction = new QAction(tr("&Quit"), this);
+    connect(quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+}
+
+void MainWindow::createTrayIcon()
+{
+    trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(maximizeAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(quitAction);
+
+    trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setContextMenu(trayIconMenu);
+    trayIcon->setIcon(QIcon("img/icona.ico"));
 }
 
 void MainWindow::on_PlayButton_clicked()

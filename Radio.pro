@@ -32,4 +32,5 @@ DISTFILES += \
     img/speaker.png \
     img/play_audio.png \
     img/stop_audio.png \
-    radio.xml
+    radio.xml \
+    img/icona.ico
