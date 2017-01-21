@@ -1,7 +1,7 @@
 # Radio
 
 
-**Library Depedence**
+**Library Dependency**
 
 sudo apt-get install libvlc-dev
 sudo apt-get install qtmultimedia5-dev
